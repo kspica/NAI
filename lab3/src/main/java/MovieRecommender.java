@@ -8,15 +8,15 @@ import static java.util.stream.Collectors.toSet;
 
 /**
  * Opis problemu:
- *  Silnik rekomendujący filmy na bazie preferencji użytkownika, implementuje on algorytm K-Means który w tym przypadku
- *  używa dystans euklidesowy żeby wygenerować klastry które będa zawierały filmy o zbliżonych parametrach. Filmy są opisywane
- *  przez mapę zawierającą parę klucz - wartość w której klucz to gatunek a wartość to liczba za zakresu 0 - 100 która mówi nam
- *  jak bardzo dany film odpowiada gatunkowi z mapy. Parametr ten jest generowany losowo ze względu na brak dostępu do takich danych.
- *  Nastęnie aplikacja pobiera użytkowników wraz z ocenionymi przez nich filmami, sprawdza jakie są ulubione gatunki danego użytkownika
- *  i na tej podstawie znajduje centroid najbardziej pasujący do upodobań użytkownika oraz generuje rekomendacje i antyrekomendacje.
- *
+ * Silnik rekomendujący filmy na bazie preferencji użytkownika, implementuje on algorytm K-Means który w tym przypadku
+ * używa dystans euklidesowy żeby wygenerować klastry które będa zawierały filmy o zbliżonych parametrach. Filmy są opisywane
+ * przez mapę zawierającą parę klucz - wartość w której klucz to gatunek a wartość to liczba za zakresu 0 - 100 która mówi nam
+ * jak bardzo dany film odpowiada gatunkowi z mapy. Parametr ten jest generowany losowo ze względu na brak dostępu do takich danych.
+ * Nastęnie aplikacja pobiera użytkowników wraz z ocenionymi przez nich filmami, sprawdza jakie są ulubione gatunki danego użytkownika
+ * i na tej podstawie znajduje centroid najbardziej pasujący do upodobań użytkownika oraz generuje rekomendacje i antyrekomendacje.
+ * <p>
  * Wykonawcy:
- *  Sebastian Kalwasiński s25535, Karol Spica s15990
+ * Sebastian Kalwasiński s25535, Karol Spica s15990
  */
 public class MovieRecommender {
 
@@ -58,21 +58,6 @@ public class MovieRecommender {
 
 
         scanner.close();
-
-//
-//        clusters.forEach((key, value) -> {
-//            System.out.println("------------------------------ CLUSTER -----------------------------------");
-//
-//            System.out.println(sortedCentroid(key));
-//            String members = String.join(", ", value
-//                    .stream()
-//                    .map(Movie::getDescription)
-//                    .collect(toSet()));
-//            System.out.print(members);
-//
-//            System.out.println();
-//            System.out.println();
-//        });
     }
 
     /**
@@ -121,14 +106,10 @@ public class MovieRecommender {
             double totalValue = genreList.stream().mapToDouble(gener -> (double) gener.getRate() / 10 * gener.getValue()).sum();
             double averageValue = totalValue / genreList.size();
 
-//            System.out.println("Gatunek: " + name);
-//            System.out.println("Suma wartości: " + totalValue);
-//            System.out.println("Średnia wartość: " + averageValue);
-//            System.out.println("---------------------------");
             genresWithAverageValue.put(name, averageValue);
         }
         return genresWithAverageValue.entrySet().stream()
-                .sorted((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue())) // Sortowanie malejąco po wartościach
+                .sorted((entry1, entry2) -> entry2.getValue().compareTo(entry1.getValue()))
                 .limit(3)
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
@@ -211,27 +192,5 @@ public class MovieRecommender {
         }
 
         return worstCentroid;
-    }
-
-    /**
-     * Sortuje centroid na podstawie wartości jego współrzędnych (gatunków) w porządku malejącym.
-     *
-     * @param key centroid do posortowania
-     * @return posortowany centroid
-     */
-    private static Centroid sortedCentroid(Centroid key) {
-        List<Map.Entry<String, Double>> entries = new ArrayList<>(key
-                .getCoordinates()
-                .entrySet());
-        entries.sort((e1, e2) -> e2
-                .getValue()
-                .compareTo(e1.getValue()));
-
-        Map<String, Double> sorted = new LinkedHashMap<>();
-        for (Map.Entry<String, Double> entry : entries) {
-            sorted.put(entry.getKey(), entry.getValue());
-        }
-
-        return new Centroid(sorted);
     }
 }

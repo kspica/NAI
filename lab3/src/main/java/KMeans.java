@@ -11,9 +11,9 @@ public class KMeans {
     /**
      * Przeprowadza algorytm K-means do klasteryzacji zbioru filmów.
      *
-     * @param movies lista filmów do klasteryzacji
-     * @param k liczba klastrów
-     * @param distance obiekt służący do obliczania odległości między punktami
+     * @param movies        lista filmów do klasteryzacji
+     * @param k             liczba klastrów
+     * @param distance      obiekt służący do obliczania odległości między punktami
      * @param maxIterations maksymalna liczba iteracji
      * @return mapa, gdzie kluczem jest centroid, a wartością lista filmów przypisanych do tego centroidu
      */
@@ -48,9 +48,9 @@ public class KMeans {
     /**
      * Znajduje najbliższy centroid do podanego filmu.
      *
-     * @param movie film, do którego szukamy najbliższego centroidu
+     * @param movie     film, do którego szukamy najbliższego centroidu
      * @param centroids lista centroidów
-     * @param distance obiekt do obliczania odległości
+     * @param distance  obiekt do obliczania odległości
      * @return najbliższy centroid
      */
     private static Centroid nearestCentroid(Movie movie, List<Centroid> centroids, Distance distance) {
@@ -72,7 +72,7 @@ public class KMeans {
      * Przypisuje film do odpowiedniego klastra.
      *
      * @param clusters mapa klastrów
-     * @param movie film do przypisania
+     * @param movie    film do przypisania
      * @param centroid centroid, do którego przypisujemy film
      */
     private static void assignToCluster(Map<Centroid, List<Movie>> clusters, Movie movie, Centroid centroid) {
@@ -90,7 +90,7 @@ public class KMeans {
      * Generuje początkowe centroidy losowo na podstawie cech filmów.
      *
      * @param movies lista filmów
-     * @param k liczba centroidów
+     * @param k      liczba centroidów
      * @return lista początkowych centroidów
      */
     private static List<Centroid> randomCentroids(List<Movie> movies, int k) {
@@ -138,7 +138,7 @@ public class KMeans {
      * Oblicza średnią pozycję centroidu na podstawie filmów przypisanych do tego centroidu.
      *
      * @param centroid centroid, dla którego obliczamy średnią
-     * @param movies lista filmów przypisanych do centroidu
+     * @param movies   lista filmów przypisanych do centroidu
      * @return nowy centroid z uśrednionymi współrzędnymi
      */
     private static Centroid average(Centroid centroid, List<Movie> movies) {
