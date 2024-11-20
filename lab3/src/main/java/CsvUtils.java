@@ -7,6 +7,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class CsvUtils {
+    /**
+     * Odczytuje plik i tworzy listę użytkowników wraz z ich ocenionymi filmami.
+     *
+     * @param file plik zawierający dane użytkowników w formacie: imię i nazwisko;film1;ocena1;film2;ocena2;...
+     * @return lista użytkowników, z których każdy zawiera swoje imię i nazwisko oraz listę ocenionych filmów
+     */
     public static List<User> getUsersFromFile(File file) {
         List<User> users = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -31,7 +37,12 @@ public class CsvUtils {
         }
         return users;
     }
-
+    /**
+     * Odczytuje plik i tworzy listę filmów ocenionych przez użytkowników.
+     *
+     * @param file plik zawierający dane filmów w formacie: film;gatunek1;gatunek2;...
+     * @return lista filmów, z których każdy zawiera opis oraz przypisane gatunki
+     */
     public static List<Movie> getMoviesRatedByUsers(File file) {
         List<Movie> movies = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {
@@ -54,6 +65,12 @@ public class CsvUtils {
         return movies;
     }
 
+    /**
+     * Odczytuje plik CSV zawierający listę 1000 najlepszych filmów IMDb i wyodrębnia ich szczegóły.
+     *
+     * @param filePath ścieżka do pliku CSV
+     * @return lista filmów z nazwami oraz gatunkami, wraz z losowymi ocenami gatunków
+     */
     public static List<Movie> getTop1000MoviesImdb(File filePath) {
         List<Movie> movies = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
@@ -80,6 +97,12 @@ public class CsvUtils {
         return movies;
     }
 
+    /**
+     * Parsuje linię z pliku CSV, uwzględniając wartości w cudzysłowach oraz oddzielone przecinkami.
+     *
+     * @param line pojedyncza linia z pliku CSV
+     * @return lista wartości wyodrębnionych z linii
+     */
     public static List<String> parseCsvLine(String line) {
         List<String> values = new ArrayList<>();
         Pattern pattern = Pattern.compile("\"([^\"]*)\"|([^,]+)");
