@@ -1,9 +1,7 @@
 import implementations.EuclideanDistance;
-
 import java.io.File;
 import java.util.*;
 import java.util.stream.Collectors;
-
 import static java.util.stream.Collectors.toSet;
 
 /**
@@ -17,6 +15,9 @@ import static java.util.stream.Collectors.toSet;
  * <p>
  * Wykonawcy:
  * Sebastian Kalwasiński s25535, Karol Spica s15990
+ * Instrukcja użycia:
+ * Uruchamiamy program z klasy MovieRecommnender, wpisujemy imię i nazwisko osoby z listy, klikamy enter i otrzymujemy
+ * rekomendacje i anytrekomendacje.
  */
 public class MovieRecommender {
 

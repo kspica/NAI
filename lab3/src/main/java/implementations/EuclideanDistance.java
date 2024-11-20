@@ -1,7 +1,5 @@
 package implementations;
-
 import interfaces.Distance;
-
 import java.util.Map;
 
 public class EuclideanDistance implements Distance {
