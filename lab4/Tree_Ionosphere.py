@@ -57,8 +57,6 @@ classifier = DecisionTreeClassifier(random_state=5, max_depth=8)
 classifier.fit(X_train, y_train)
 
 """
-Autorzy: Sebastian Kalwasiński, Karol Spica
-
 Przewiduje klasy dla zbioru testowego na podstawie wytrenowanego modelu.
 Oblicza i wyświetla raport klasyfikacji na podstawie zbioru testowego.
 """

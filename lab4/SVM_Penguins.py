@@ -26,7 +26,6 @@ Dane klas dostosowane za pomocą enkodera do potrzeb skryptu. Klasa male oznaczo
 X: Dane wejściowe.
 y: Etykiety klas (male lub female), (1, 0)
 """
-
 input_file = 'PenguinsDataset.csv'
 columns = ['species', 'island', 'bill_length_mm', 'bill_depth_mm', 'flipper_length_mm',
            'body_mass_g', 'sex']
