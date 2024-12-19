@@ -26,3 +26,15 @@ Wyniki nie różnią się aż tak mocno między sobą w przypadku danych z Jonos
 
 ### Sieć neuronowa
 ![NN_fashionMNIST_summary](screenshots/NN_fashionMNIST_summary.png)
+
+## Propozycja użycia sieci neuronowej:
+Można by stworzyć sieć neuronową wytrenowaną do klasyfikacji kawy w 100-punktowej skali SCA. Wymagałoby to posiadania zbioru danych zawierającego poniższe parametry, 
+które są określane przez specjalnie wykwalifikowane osoby (tzw. Q-Graderów). Dodatkowo, dataset powinien być uzupełniony o parametry kawy mierzone obiektywnie. 
+Ostatnim elementem naszego zestawu danych byłyby zdjęcia ziaren kawy po wypaleniu. Od tak wyuczonego modelu oczekiwano by, że na podstawie przekazanego zdjęcia kawy oceni,
+ile punktów może ona uzyskać w skali SCA, a co za tym idzie, określi jej jakość. Można by go też wytrenowac w taki sposób żeby na podstawie parametrów fizycznych kawy szacował jaką ocena może uzyskać kawa w skali SCA. 
+W tym wypadku dataset powinien posiadać wspomniane powyżej parametry fizyczne kawy oraz jej ocenę w skali SCA.  
+  
+## Skala SCA
+![SCA_scale.png](screenshots/SCA_scale.png)
+## Parametry fizyczne kawy
+![coffe_params.png](screenshots/coffe_params.png)
