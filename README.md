@@ -8,4 +8,4 @@
 - lab6. Zła platform do wyświetlania reklam 
 
 # Podsumowanie ostatniego lab
-<iframe width="560" height="315" src="lab6/testingVideo.mp4" frameborder="0" allowfullscreen></iframe>
+lab6/testingVideo.mp4
