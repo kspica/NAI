@@ -8,4 +8,4 @@
 - lab6. Zła platform do wyświetlania reklam 
 
 # Podsumowanie ostatniego lab
-lab6/testingVideo.mp4
+[Oglądanie_Reklamy.mp4](lab6/testingVideo.mp4)
